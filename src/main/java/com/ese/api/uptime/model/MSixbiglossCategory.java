@@ -42,5 +42,6 @@ public class MSixbiglossCategory implements Serializable {
   @Column(name = "modify_by")
   private Integer modifyBy;
 
-  
+  @Column(name = "oee_loss_id")
+  private Integer oeeLossId;
 }

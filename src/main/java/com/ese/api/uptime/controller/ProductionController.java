@@ -43,10 +43,10 @@ public class ProductionController {
         return productionRepository.findById(productionId).orElseThrow(() -> new ResourceNotFoundException("Production [productionId="+productionId+"] can't be found"));
     }
 
-    @GetMapping(value = "/getProductionByMachineReg/{machineRegisterId}/{factoryId}")
+    @GetMapping(value = "/getProductionByMachineReg/{machineRegisterId}/{factoryId}/{statusId}")
     @CrossOrigin(origins = "http://localhost:4200")
-    public List<Production> findByMachineRegisterId (@PathVariable Integer machineRegisterId,@PathVariable Integer factoryId){
-        return productionRepository.findByMachineRegisterId(machineRegisterId,factoryId);
+    public List<Production> findByMachineRegisterId (@PathVariable Integer machineRegisterId,@PathVariable Integer factoryId,@PathVariable Integer statusId){
+        return productionRepository.findByMachineRegisterId(machineRegisterId,factoryId,statusId);
 
 
     }
@@ -101,5 +101,11 @@ public class ProductionController {
             return ResponseEntity.ok(production);
         }).orElseThrow(() -> new ResourceNotFoundException("Production [productionId="+productionId+"] can't be found"));
 
+    }
+
+    @PatchMapping(value = "/patchProductionStatusId/{statusId}/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Integer updateStatusById(@PathVariable Integer statusId, @PathVariable Integer id){
+         return productionRepository.updateStatusById(statusId,id);
     }
 }

@@ -2,6 +2,7 @@ package com.ese.api.uptime.controller;
 
 import com.ese.api.uptime.exception.ResourceNotFoundException;
 import com.ese.api.uptime.model.MSixbigloss;
+import com.ese.api.uptime.model.Production;
 import com.ese.api.uptime.repo.MSixbiglossRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class MSixBiglossController {
@@ -38,6 +41,14 @@ public class MSixBiglossController {
     @CrossOrigin(origins = "http://localhost:4200")
     public MSixbigloss findByMSixbiglossId (@PathVariable Integer mSixbiglossId){
         return mSixbiglossRepository.findById(mSixbiglossId).orElseThrow(() -> new ResourceNotFoundException("MSixbigloss [SixbiglossId="+mSixbiglossId+"] can't be found"));
+    }
+
+    @GetMapping(value = "/getMSixbiglossByMachineReg/{machineRegisterId}/{factoryId}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<MSixbigloss> findByMachineRegisterId (@PathVariable Integer machineRegisterId, @PathVariable Integer factoryId){
+        return mSixbiglossRepository.findSixBigLossByMachineRegisterId(machineRegisterId, factoryId);
+
+
     }
 
     @DeleteMapping(value = "/delMSixbigloss/{mSixbiglossId}")

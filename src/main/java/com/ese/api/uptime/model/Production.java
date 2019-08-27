@@ -37,34 +37,34 @@ public class Production implements Serializable {
   private Float takttime;
 
   @Column(name = "planstart")
-  private String planstart;
+  private java.util.Date planstart = new Date();
 
   @Column(name = "planfinish")
-  private String planfinish;
+  private java.util.Date planfinish = new Date();
 
   @Column(name = "break1start")
-  private String break1start;
+  private java.util.Date break1start = new Date();
 
   @Column(name = "break1finish")
-  private String break1finish;
+  private java.util.Date break1finish = new Date();
 
   @Column(name = "break2start")
-  private String break2start;
+  private java.util.Date break2start = new Date();
 
   @Column(name = "break2finish")
-  private String break2finish;
+  private java.util.Date break2finish = new Date();
 
   @Column(name = "break3start")
-  private String break3start;
+  private java.util.Date break3start = new Date();
 
   @Column(name = "break3finish")
-  private String break3finish;
+  private java.util.Date break3finish = new Date();
 
   @Column(name = "actualstart")
-  private String actualstart;
+  private java.util.Date actualstart = new Date();
 
   @Column(name = "actualfinish")
-  private String actualfinish;
+  private java.util.Date actualfinish = new Date();
 
   @Column(name = "totaldowntime")
   private Integer totaldowntime;
@@ -99,5 +99,6 @@ public class Production implements Serializable {
   @Column(name = "modify_by")
   private Integer modifyBy;
 
-  
+  @Column(name = "oee_target")
+  private Integer oeeTarget;
 }

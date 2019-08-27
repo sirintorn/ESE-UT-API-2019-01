@@ -48,5 +48,9 @@ public class MSixbigloss implements Serializable {
   @Column(name = "modify_by")
   private Integer modifyBy;
 
-  
+  @Column(name = "machine_register_id")
+  private Integer machineReigsterId;
+
+  @Column(name = "four_m_loss_id")
+  private Integer foruMLossId;
 }
