@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "m_break_time")
+@Table(name = "break_time")
 @Data
 public class MBreakTime implements Serializable {
   private static final long serialVersionUID = 1L;

@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
 
-@Table(name = "m_operation")
+@Table(name = "operation")
 @Data
 @Entity
 public class MOperation implements Serializable {

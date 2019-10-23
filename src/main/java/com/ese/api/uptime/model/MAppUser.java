@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
 
-@Table(name = "m_app_user")
+@Table(name = "app_user")
 @Data
 @Entity
 public class MAppUser implements Serializable {

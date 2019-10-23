@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "m_machine_register")
+@Table(name = "machine_register")
 public class MMachineRegister implements Serializable {
   private static final long serialVersionUID = 1L;
 

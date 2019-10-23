@@ -47,8 +47,12 @@ public class ProductionController {
     @CrossOrigin(origins = "http://localhost:4200")
     public List<Production> findByMachineRegisterId (@PathVariable Integer machineRegisterId,@PathVariable Integer factoryId,@PathVariable Integer statusId){
         return productionRepository.findByMachineRegisterId(machineRegisterId,factoryId,statusId);
+    }
 
-
+    @GetMapping(value = "/findByMachineRegisterIdForStarted/{machineRegisterId}/{factoryId}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<Production> findByMachineRegisterIdForStarted (@PathVariable Integer machineRegisterId,@PathVariable Integer factoryId){
+        return productionRepository.findByMachineRegisterIdForStarted(machineRegisterId,factoryId);
     }
 
     @DeleteMapping(value = "/delProduction/{productionId}")
@@ -106,6 +110,18 @@ public class ProductionController {
     @PatchMapping(value = "/patchProductionStatusId/{statusId}/{id}")
     @CrossOrigin(origins = "http://localhost:4200")
     public Integer updateStatusById(@PathVariable Integer statusId, @PathVariable Integer id){
-         return productionRepository.updateStatusById(statusId,id);
+        return productionRepository.updateStatusById(statusId,id);
+    }
+
+    @PatchMapping(value = "/patchProductionStatusIdStartDatetime/{statusId}/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Integer updateActualStartById(@PathVariable Integer statusId, @PathVariable Integer id){
+        return productionRepository.updateActualStartById(statusId,id);
+    }
+
+    @PatchMapping(value = "/patchProductionStatusIdFinishDatetime/{statusId}/{id}/{actualOk}/{actualNg}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Integer updateActualFinishById(@PathVariable Integer statusId, @PathVariable Integer id, @PathVariable Integer actualOk, @PathVariable Integer actualNg){
+        return productionRepository.updateActualFinishById(statusId,id,actualOk,actualNg);
     }
 }

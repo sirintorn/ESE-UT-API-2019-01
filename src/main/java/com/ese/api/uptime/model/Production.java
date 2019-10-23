@@ -101,4 +101,10 @@ public class Production implements Serializable {
 
   @Column(name = "oee_target")
   private Integer oeeTarget;
+
+  @Column(name = "actual_ok")
+  private Integer actualOk;
+
+  @Column(name = "actual_ng")
+  private Integer actualNg;
 }

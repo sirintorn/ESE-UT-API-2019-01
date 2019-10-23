@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Data
-@Table(name = "m_mobile_register")
+@Table(name = "mobile_register")
 @Entity
 public class MMobileRegister implements Serializable {
   private static final long serialVersionUID = 1L;

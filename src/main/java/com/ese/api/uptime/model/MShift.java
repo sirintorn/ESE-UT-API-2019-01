@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
 
-@Table(name = "m_shift")
+@Table(name = "shift")
 @Entity
 @Data
 public class MShift implements Serializable {

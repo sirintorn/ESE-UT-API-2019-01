@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
 
-@Table(name = "m_item")
+@Table(name = "item")
 @Data
 @Entity
 public class MItem implements Serializable {

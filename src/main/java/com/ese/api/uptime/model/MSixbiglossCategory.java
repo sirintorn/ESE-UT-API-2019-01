@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Data
-@Table(name = "m_sixbigloss_category")
+@Table(name = "sixbigloss_category")
 @Entity
 public class MSixbiglossCategory implements Serializable {
   private static final long serialVersionUID = 1L;

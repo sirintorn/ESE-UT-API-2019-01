@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Data
-@Table(name = "m_oeeloss")
+@Table(name = "oeeloss")
 @Entity
 public class MOeeloss implements Serializable {
   private static final long serialVersionUID = 1L;

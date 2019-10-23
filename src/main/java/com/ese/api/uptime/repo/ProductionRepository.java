@@ -17,9 +17,23 @@ public interface ProductionRepository extends JpaRepository<Production, Integer>
     @Query(value = "FROM Production p WHERE p.machineRegisterId = :machineRegisterId and p.factoryId = :factoryId and p.statusId =:statusId  and p.planstart > current_date " )
     List<Production> findByMachineRegisterId(Integer machineRegisterId,Integer factoryId,Integer statusId) ;
 
+    @Query(value = "FROM Production p WHERE p.machineRegisterId = :machineRegisterId and p.factoryId = :factoryId and (p.statusId =1  and p.planstart > current_date) or p.statusId = 2 " )
+    List<Production> findByMachineRegisterIdForStarted(Integer machineRegisterId,Integer factoryId) ;
+
     @Modifying
     @Transactional
-    @Query("update Production p  set p.statusId =:statusId where p.id =:id")
+    @Query("update Production p  set p.statusId =:statusId  where p.id =:id")
     Integer updateStatusById(Integer statusId,Integer id);
+
+    @Modifying
+    @Transactional
+    @Query("update Production p  set p.statusId =:statusId , p.actualstart = current_timestamp where p.id =:id")
+    Integer updateActualStartById(Integer statusId,Integer id);
+
+
+    @Modifying
+    @Transactional
+    @Query("update Production p  set p.statusId =:statusId , p.actualfinish = current_timestamp ,p.actualOk =:actualOk, p.actualNg =:actualNg where p.id =:id")
+    Integer updateActualFinishById(Integer statusId,Integer id,Integer actualOk,Integer actualNg);
 
 }
